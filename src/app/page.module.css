@@ -1,18 +1,16 @@
 .page {
   --gray-rgb: 0, 0, 0;
+  --gray-alpha-300: rgba(var(--gray-rgb), 0.3);
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
   --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
 
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-items: center;
   min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
   font-family: var(--font-geist-sans);
 }
 
@@ -21,17 +19,60 @@
     --gray-rgb: 255, 255, 255;
     --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
     --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
+    
     --button-primary-hover: #ccc;
     --button-secondary-hover: #1a1a1a;
   }
 }
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80px;
+  background-color: var(--gray-alpha-300);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.navbarlogo {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  margin-bottom: 10px;
+  width: 140px;
+  height: 50px;
+}
 
 .main {
+  position: relative;
+  opacity: 0.8;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  background-color: white;
+}
+
+.mainVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: -1;
+  opacity: 1;
+}
+.whiteWall {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.3;
 }
 
 .main ol {
@@ -163,6 +204,33 @@ a.secondary {
 
 @media (prefers-color-scheme: dark) {
   .logo {
+    position: absolute;
+    top: 100px;
+    width: 400px;
+    left: 20%;
     margin-bottom: 10px;
   }
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 500px;
+  left: 24%;
+
+}
+.headerTitle {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+.headerDescription {
+  font-size: 20px;
+  line-height: 1.5;
+  max-width: 600px;
+  text-align: center;
 }
